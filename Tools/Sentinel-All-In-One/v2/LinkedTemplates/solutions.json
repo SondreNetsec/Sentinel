@@ -39,7 +39,7 @@
             "properties": {
                 "mode": "Incremental",
                 "templateLink": {
-                    "uri": "https://catalogartifact.azureedge.net/publicartifacts/azuresentinel.azure-sentinel-solution-azureactivedirectory-72580042-5993-4a15-91a6-16682c9caa22-azure-sentinel-solution-azureactivedirectory/Artifacts/mainTemplate.json",
+                    "uri": "https://catalogartifact.azureedge.net/publicartifacts/azuresentinel.azure-sentinel-solution-azureactivedirectory-4ce15e62-2d69-4e80-ab66-9acb9ca86a07-azure-sentinel-solution-azureactivedirectory/Artifacts/mainTemplate.json",
                     "contentVersion": "1.0.0.0"
                 },
                 "parameters": {
@@ -53,10 +53,10 @@
                         "value": "[parameters('location')]"
                     },
                     "workbook1-name": {
-                        "value": "Microsoft Entra ID Audit logs"
+                        "value": "Azure AD Audit logs"
                     },
                     "workbook2-name": {
-                        "value": "Microsoft Entra ID Sign-in logs"
+                        "value": "Azure AD Sign-in logs"
                     }
                 }
             }
@@ -150,7 +150,7 @@
             "properties": {
                 "mode": "Incremental",
                 "templateLink": {
-                    "uri": "https://catalogartifact.azureedge.net/publicartifacts/azuresentinel.azure-sentinel-solution-azureactivedirectory-72580042-5993-4a15-91a6-16682c9caa22-azure-sentinel-solution-azureactivedirectory/Artifacts/mainTemplate.json",
+                    "uri": "https://catalogartifact.azureedge.net/publicartifacts/azuresentinel.azure-sentinel-solution-azureactivedirectory-4ce15e62-2d69-4e80-ab66-9acb9ca86a07-azure-sentinel-solution-azureactivedirectory/Artifacts/mainTemplate.json",
                     "contentVersion": "1.0.0.0"
                 },
                 "parameters": {
@@ -164,10 +164,10 @@
                         "value": "[parameters('location')]"
                     },
                     "workbook1-name": {
-                        "value": "Entra ID Audit logs"
+                        "value": "Azure AD Audit logs"
                     },
                     "workbook2-name": {
-                        "value": "Entra ID Sign-in logs"
+                        "value": "Azure AD Sign-in logs"
                     }
                 }
             }
