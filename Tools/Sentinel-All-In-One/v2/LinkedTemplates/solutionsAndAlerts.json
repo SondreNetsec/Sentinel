@@ -34,7 +34,7 @@
             "metadata": {
                 "description": "whether to enable scheduled analytic rules or not"
             },
-            "defaultValue": false
+            "defaultValue": true
         },
         "severityLevels": {
             "type": "string"

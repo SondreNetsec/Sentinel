@@ -98,13 +98,6 @@
             },
             "defaultValue": []
         },
-        "enableSolutionsTraining": {
-            "type": "array",
-            "metadata": {
-                "description": "The list of Content Hub Training solutions to deploy."
-            },
-            "defaultValue": []
-        },
         "aadStreams": {
             "type": "array",
             "metadata": {
@@ -126,36 +119,19 @@
             },
             "defaultValue": []
         },
-        "enableDiagnostics": {
-            "type": "bool"
-        },
-        "enableMLAlerts": {
-            "type": "bool",
-            "metadata": {
-                "description": "Enable ML Behavior Analytics rules"
-            },
-            "defaultValue": false
-        },
         "enableScheduledAlerts": {
             "type": "bool",
             "metadata": {
                 "description": "Enable Scheduled analytics rules"
             },
             "defaultValue": false
-        },
-        "_artifactsLocation": {
-            "type": "string",
-            "metadata": {
-                "description": "The location of resources"
-            },
-            "defaultValue": "https://raw.githubusercontent.com/garybushey/AllInOneGov/main"
         }
     },
     "variables": {},
     "resources": [
         {
             "type": "Microsoft.Resources/resourceGroups",
-            "apiVersion": "2020-06-01",
+            "apiVersion": "2024-08-01",
             "name": "[parameters('rgName')]",
             "location": "[parameters('location')]",
             "properties": {}
@@ -163,7 +139,7 @@
         {
             "name": "workspaceCreation",
             "type": "Microsoft.Resources/deployments",
-            "apiVersion": "2020-06-01",
+            "apiVersion": "2024-07-01",
             "dependsOn": [
                 "[resourceId('Microsoft.Resources/resourceGroups',parameters('rgName'))]"
             ],
@@ -202,7 +178,7 @@
         {
             "type": "Microsoft.Resources/deployments",
             "name": "settings",
-            "apiVersion": "2020-06-01",
+            "apiVersion": "2024-07-01",
             "dependsOn": [
                 "workspaceCreation"
             ],
@@ -222,9 +198,6 @@
                     },
                     "identityProviders": {
                         "value": "[parameters('identityProviders')]"
-                    },
-                    "enableDiagnostics": {
-                        "value": "[parameters('enableDiagnostics')]"
                     }
                 }
             }
@@ -233,7 +206,7 @@
             "condition": "[not(empty(parameters('enableDataConnectors')))]",
             "name": "enableDataConnectors",
             "type": "Microsoft.Resources/deployments",
-            "apiVersion": "2020-06-01",
+            "apiVersion": "2024-07-01",
             "resourceGroup": "[parameters('rgName')]",
             "dependsOn": [
                 "workspaceCreation",
@@ -268,10 +241,10 @@
             }
         },
         {
-            "condition": "[or(not(empty(parameters('enableSolutions1P'))),not(empty(parameters('enableSolutionsEssentials'))),not(empty(parameters('enableSolutionsTraining'))))]",
+            "condition": "[or(not(empty(parameters('enableSolutions1P'))),not(empty(parameters('enableSolutionsEssentials'))))]",
             "name": "enableSolutionsAndAlerts",
             "type": "Microsoft.Resources/deployments",
-            "apiVersion": "2020-06-01",
+            "apiVersion": "2024-07-01",
             "resourceGroup": "[parameters('rgName')]",
             "dependsOn": [
                 "workspaceCreation",
@@ -289,9 +262,6 @@
                     },
                     "enableSolutionsEssentials": {
                         "value": "[replace(replace(string(parameters('enableSolutionsEssentials')),'[',''),']','')]"
-                    },
-                    "enableSolutionsTraining": {
-                        "value": "[replace(replace(string(parameters('enableSolutionsTraining')),'[',''),']','')]"
                     },
                     "workspaceName": {
                         "value": "[parameters('workspaceName')]"
