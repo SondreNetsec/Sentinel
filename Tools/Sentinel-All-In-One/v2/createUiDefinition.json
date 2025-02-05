@@ -383,27 +383,27 @@
                   },
                   {
                     "name": "aadStreams",
-                      "type": "Microsoft.Common.DropDown",
-                      "label": "Select Azure Active Directory log types to enable",
-                      "placeholder": "",
-                      "multiselect": true,
-                      "defaultValue": [{"value": "SignInLogs"}, {"value": "AuditLogs"}],
-                      "toolTip": "Select Azure Active Directory log types you would like to stream to the workspace",
-                      "constraints": {
-                          "allowedValues": [
-                              {
-                                  "label": "Signin Logs",
-                                  "value": "SignInLogs"
-                              },
-                              {
-                                  "label": "Audit Logs",
-                                  "value": "AuditLogs"
-                              }
-                          ],
-                          "required": false
-                      },
-                      "visible": "[if(contains(steps('dataConnectors').enableDataConnectors,'AzureActiveDirectory'),true,false)]"
+                    "type": "Microsoft.Common.DropDown",
+                    "label": "Select Azure Active Directory log types to enable",
+                    "placeholder": "",
+                    "multiselect": true,
+                    "output": "value",
+                    "defaultValue": [
+                      { "label": "Signin Logs", "value": "SignInLogs" },
+                      { "label": "Audit Logs", "value": "AuditLogs" }
+                    ],
+                    "toolTip": "Select Azure Active Directory log types you would like to stream to the workspace",
+                    "constraints": {
+                        "allowedValues": [
+                            { "label": "Signin Logs", "value": "SignInLogs" },
+                            { "label": "Audit Logs", "value": "AuditLogs" }
+                        ],
+                        "required": false
+                    },
+                    "visible": "[if(contains(steps('dataConnectors').enableDataConnectors, 'AzureActiveDirectory'), true, false)]"
                   }
+                  
+                  
               ]
           },
           {
