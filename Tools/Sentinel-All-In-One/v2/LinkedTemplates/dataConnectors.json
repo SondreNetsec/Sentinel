@@ -52,7 +52,7 @@
             "type": "microsoft.aadiam/diagnosticSettings",
             "apiVersion": "2017-04-01",
             "scope": "/",
-            "name": "[format('{0}-aadDiagnosticSetttings', parameters('workspaceName'))]",
+            "name": "[format('{0}-aadDiagnosticSettings', parameters('workspaceName'))]",
             "properties": {
             "logs": [
                 {
