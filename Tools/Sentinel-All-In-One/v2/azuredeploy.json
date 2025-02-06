@@ -209,8 +209,9 @@
             "apiVersion": "2024-07-01",
             "resourceGroup": "[parameters('rgName')]",
             "dependsOn": [
-                "workspaceCreation",
-                "enableSolutionsAndAlerts"
+                "[resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspaceName'))]", 
+                "workspaceCreation"
+                
             ],
             "properties": {
                 "mode": "Incremental",

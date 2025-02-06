@@ -29,6 +29,9 @@
             "name": "Microsoft365",
             "type": "Microsoft.Resources/deployments",
             "apiVersion": "2021-04-01",
+            "dependsOn": [
+                "[resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspaceName'))]"
+    ],
             "properties": {
                 "mode": "Incremental",
                 "templateLink": {
@@ -62,6 +65,9 @@
             "name": "UEBAEssentials",
             "type": "Microsoft.Resources/deployments",
             "apiVersion": "2021-04-01",
+                "dependsOn": [
+        "[resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspaceName'))]"
+    ],
             "properties": {
                 "mode": "Incremental",
                 "templateLink": {
@@ -86,6 +92,9 @@
             "name": "CloudIdentityThreatProtectionEssentials",
             "type": "Microsoft.Resources/deployments",
             "apiVersion": "2021-04-01",
+                "dependsOn": [
+        "[resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspaceName'))]"
+    ],
             "properties": {
                 "mode": "Incremental",
                 "templateLink": {
@@ -110,6 +119,9 @@
             "name": "AzureActiveDirectory",
             "type": "Microsoft.Resources/deployments",
             "apiVersion": "2021-04-01",
+            "dependsOn": [
+                "[resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspaceName'))]"
+            ],
             "properties": {
                 "mode": "Incremental",
                 "templateLink": {
@@ -134,6 +146,9 @@
             "name": "AzureActivity",
             "type": "Microsoft.Resources/deployments",
             "apiVersion": "2021-04-01",
+                "dependsOn": [
+        "[resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspaceName'))]"
+    ],
             "properties": {
                 "mode": "Incremental",
                 "templateLink": {
@@ -161,6 +176,9 @@
             "name": "ThreatIntelligence",
             "type": "Microsoft.Resources/deployments",
             "apiVersion": "2021-04-01",
+                "dependsOn": [
+        "[resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspaceName'))]"
+    ],
             "properties": {
                 "mode": "Incremental",
                 "templateLink": {
@@ -188,6 +206,9 @@
             "name": "SecurityThreatEssentials",
             "type": "Microsoft.Resources/deployments",
             "apiVersion": "2021-04-01",
+                "dependsOn": [
+        "[resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspaceName'))]"
+    ],
             "properties": {
                 "mode": "Incremental",
                 "templateLink": {

@@ -53,6 +53,10 @@
             "apiVersion": "2017-04-01",
             "scope": "/",
             "name": "[format('{0}-aadDiagnosticSettings', parameters('workspaceName'))]",
+                "dependsOn": [
+        "[resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspaceName'))]",
+        "[resourceId('Microsoft.SecurityInsights/onboardingStates', 'default')]"
+    ],
             "properties": {
                 "logs": [
                     {
