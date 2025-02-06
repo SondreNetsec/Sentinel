@@ -40,13 +40,15 @@ Write-Host " Base Uri: $baseUri"
 $url = $baseUri + "/providers/Microsoft.SecurityInsights/contentProductPackages?api-version=2024-03-01"
 
 Write-Host " Content Product Packages Uri: $url"
+Write-Host "Available Solutions: " ($allSolutions.properties.displayName -join ", ")
+
 
 $allSolutions = (Invoke-RestMethod -Method "Get" -Uri $url -Headers $authHeader ).value
 
 #Deploy each single solution
 #$templateParameter = @{"workspace-location" = $Region; workspace = $Workspace }
 foreach ($deploySolution in $Solutions) {
-    $singleSolution = $allSolutions | Where-Object { $_.properties.displayName -Contains $deploySolution }
+    $singleSolution = $allSolutions | Where-Object { $_.properties.contentId -eq $deploySolution }
     if ($null -eq $singleSolution) {
         Write-Error "Unable to get find solution with name $deploySolution" 
     }

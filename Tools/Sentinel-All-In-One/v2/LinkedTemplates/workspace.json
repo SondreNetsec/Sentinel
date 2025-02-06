@@ -85,15 +85,15 @@
             "apiVersion": "2015-11-01-preview",
             "location": "[parameters('location')]",
             "properties": {
-                "retentionInDays": "[parameters('dataRetention')]",
-                "workspaceCapping": "[if(equals(parameters('dailyQuota'),0), json('null'), variables('quoatSetting'))]",
-                "features": {
-                    "immediatePurgeDataOn30Days": "[parameters('immediatePurgeDataOn30Days')]"
-                },
-                "sku": {
-                    "capacityReservationLevel": "[if(equals(parameters('pricingTier'),'CapacityReservation'), parameters('capacityReservation'), json('null'))]",
-                    "name": "[parameters('pricingTier')]"
-                }
+        "retentionInDays": "[parameters('dataRetention')]",
+        "workspaceCapping": "[if(equals(parameters('dailyQuota'),0), json('null'), variables('quoatSetting'))]",
+        "features": {
+            "immediatePurgeDataOn30Days": "[parameters('immediatePurgeDataOn30Days')]"
+        },
+        "sku": {
+            "capacityReservationLevel": "[if(equals(parameters('pricingTier'),'CapacityReservation'), parameters('capacityReservation'), json('null'))]",
+            "name": "[parameters('pricingTier')]"
+        }
             }
         },
         {

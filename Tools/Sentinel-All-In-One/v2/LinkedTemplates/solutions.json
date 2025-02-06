@@ -106,7 +106,7 @@
             }
         },
         {
-            "condition": "[contains(parameters('enableSolutions1P'), 'AzureActiveDirectory')]",
+            "condition": "[contains(parameters('enableSolutions1P'), 'azuresentinel.azure-sentinel-solution-azureactivedirectory')]",
             "name": "AzureActiveDirectory",
             "type": "Microsoft.Resources/deployments",
             "apiVersion": "2021-04-01",
@@ -125,12 +125,6 @@
                     },
                     "workspace-location": {
                         "value": "[parameters('location')]"
-                    },
-                    "workbook1-name": {
-                        "value": "Entra ID Audit logs"
-                    },
-                    "workbook2-name": {
-                        "value": "Entra ID Sign-in logs"
                     }
                 }
             }

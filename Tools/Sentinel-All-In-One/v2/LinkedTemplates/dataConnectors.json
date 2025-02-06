@@ -48,29 +48,33 @@
     },
     "resources": [
          {
-            "condition": "[contains(parameters('dataConnectorsKind'), 'AzureActiveDirectory')]",
+            "condition": "[and(contains(parameters('dataConnectorsKind'), 'AzureActiveDirectory'), less(length(reference('microsoft.aadiam/diagnosticSettings').value), 5))]",
             "type": "microsoft.aadiam/diagnosticSettings",
             "apiVersion": "2017-04-01",
             "scope": "/",
             "name": "[format('{0}-aadDiagnosticSettings', parameters('workspaceName'))]",
             "properties": {
-            "logs": [
-                {
-                    "category": "SignInLogs",
-                    "enabled": "[contains(parameters('aadStreams'),'SignInLogs')]"
-                },
-                {
-                    "category": "AuditLogs",
-                    "enabled": "[contains(parameters('aadStreams'),'AuditLogs')]"
-                }
-            ],
-            "workspaceId": "[resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspaceName'))]"
+                "logs": [
+                    {
+                        "category": "SignInLogs",
+                        "enabled": "[contains(parameters('aadStreams'),'SignInLogs')]"
+                    },
+                    {
+                        "category": "AuditLogs",
+                        "enabled": "[contains(parameters('aadStreams'),'AuditLogs')]"
+                    }
+                ],
+                "workspaceId": "[resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspaceName'))]"
             }
         },
         {
             "condition": "[contains(parameters('dataConnectorsKind'), 'Office365')]",
             "type": "Microsoft.OperationalInsights/workspaces/providers/dataConnectors",
             "apiVersion": "2020-01-01",
+            "dependsOn": [
+                "[resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspaceName'))]",
+                "[resourceId('Microsoft.SecurityInsights/onboardingStates', 'default')]"
+            ],
             "location": "[parameters('location')]",
             "name": "[concat(parameters('workspaceName'),'/Microsoft.SecurityInsights/',variables('o365Name'))]",
             "kind": "Office365",
