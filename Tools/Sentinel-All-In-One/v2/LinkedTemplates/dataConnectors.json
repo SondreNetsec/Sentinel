@@ -48,7 +48,7 @@
     },
     "resources": [
          {
-            "condition": "[and(contains(parameters('dataConnectorsKind'), 'AzureActiveDirectory'), less(length(reference('microsoft.aadiam/diagnosticSettings').value), 5))]",
+            "condition": "[contains(parameters('dataConnectorsKind'), 'AzureActiveDirectory')]",
             "type": "microsoft.aadiam/diagnosticSettings",
             "apiVersion": "2017-04-01",
             "scope": "/",
