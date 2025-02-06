@@ -147,7 +147,7 @@
             "properties": {
                 "mode": "Incremental",
                 "templateLink": {
-                    "uri": "https://raw.githubusercontent.com/SondreNetsec/Sentinel/refs/heads/master/Tools/Sentinel-All-In-One/v2/LinkedTemplates/workspace.json",
+                    "uri": "https://raw.githubusercontent.com/SondreNetsec/Sentinel/refs/heads/revert/Tools/Sentinel-All-In-One/v2/LinkedTemplates/workspace.json",
                     "contentVersion": "1.0.0.0"
                 },
                 "parameters": {
@@ -186,7 +186,7 @@
             "properties": {
                 "mode": "Incremental",
                 "templateLink": {
-                    "uri": "https://raw.githubusercontent.com/SondreNetsec/Sentinel/refs/heads/master/Tools/Sentinel-All-In-One/v2/LinkedTemplates/settings.json",
+                    "uri": "https://raw.githubusercontent.com/SondreNetsec/Sentinel/refs/heads/revert/Tools/Sentinel-All-In-One/v2/LinkedTemplates/settings.json",
                     "contentVersion": "1.0.0.0"
                 },
                 "parameters": {
@@ -215,7 +215,7 @@
             "properties": {
                 "mode": "Incremental",
                 "templateLink": {
-                    "uri": "https://raw.githubusercontent.com/SondreNetsec/Sentinel/refs/heads/master/Tools/Sentinel-All-In-One/v2/LinkedTemplates/dataConnectors.json",
+                    "uri": "https://raw.githubusercontent.com/SondreNetsec/Sentinel/refs/heads/revert/Tools/Sentinel-All-In-One/v2/LinkedTemplates/dataConnectors.json",
                     "contentVersion": "1.0.0.0"
                 },
                 "parameters": {
@@ -253,7 +253,7 @@
             "properties": {
                 "mode": "Incremental",
                 "templateLink": {
-                    "uri": "https://raw.githubusercontent.com/SondreNetsec/Sentinel/refs/heads/master/Tools/Sentinel-All-In-One/v2/LinkedTemplates/solutionsAndAlerts.json",
+                    "uri": "https://raw.githubusercontent.com/SondreNetsec/Sentinel/refs/heads/revert/Tools/Sentinel-All-In-One/v2/LinkedTemplates/solutionsAndAlerts.json",
                     "contentVersion": "1.0.0.0"
                 },
                 "parameters": {
